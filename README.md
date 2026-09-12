@@ -1,3 +1,4 @@
+<img width="1280" height="640" alt="image" src="https://github.com/user-attachments/assets/5869dc61-3fcf-43fa-8782-9e88f4825f4d" />
 SWARITHMETIC 🎯
 Basic Details
 
