@@ -1,1 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swarithmetic | Sing Your Way To The Answer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
+        body {
+            background: linear-gradient(135deg, #090714 0%, #1a0f2e 50%, #0e0919 100%);
+            color: white;
+            font-family: 'Baloo 2', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ================= TOP BAR ================= */
+        .top-bar {
+            text-align: center;
+            padding: 12px 20px;
+            background: rgba(22, 16, 39, 0.95);
+            color: #d8caff;
+            font-size: 13px;
+            border-bottom: 2px solid #3b2d54;
+            animation: slideDown 0.6s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* ================= NAVBAR ================= */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 7%;
+            background: rgba(9, 7, 20, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid #28203d;
+        }
+
+        .logo {
+            font-family: 'Press Start 2P';
+            font-size: 20px;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #c9a7ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            color: #d8d0e8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #d6a7ff;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #c9a7ff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ================= HERO SECTION ================= */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 8%;
+            position: relative;
+            gap: 50px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201, 167, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-left {
+            max-width: 700px;
+            z-index: 10;
+        }
+
+        .small-title {
+            font-family: 'Press Start 2P';
+            font-size: 11px;
+            color: #cda9ff;
+            margin-bottom: 20px;
+            line-height: 2;
+            letter-spacing: 3px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h1 {
+            font-family: 'Press Start 2P';
+            font-size: clamp(42px, 8vw, 85px);
+            line-height: 1.15;
+            margin-bottom: 25px;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero h1 span {
+            color: #cda9ff;
+            text-shadow: 0 0 20px rgba(205, 169, 255, 0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #c8c0d8;
+            max-width: 620px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 35px;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            color: #d8d0e8;
+        }
+
+        .feature-item::before {
+            content: '♪';
+            font-size: 24px;
+            color: #c9a7ff;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, #b78cff 0%, #9d6fff 100%);
+            color: #10091b;
+            box-shadow: 0 8px 25px rgba(183, 140, 255, 0.3);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(183, 140, 255, 0.5);
+        }
+
+        .secondary-btn {
+            border: 2px solid #67547d;
+            color: #d8d0e8;
+            background: rgba(103, 84, 125, 0.1);
+        }
+
+        .secondary-btn:hover {
+            background: rgba(103, 84, 125, 0.3);
+            border-color: #c9a7ff;
+            color: #c9a7ff;
+        }
+
+        /* ================= MUSIC BOX / GAME PREVIEW ================= */
+        .hero-right {
+            flex: 1;
+            z-index: 10;
+        }
+
+        .music-stage {
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 1;
+            border: 3px solid #3b2d54;
+            border-radius: 35px;
+            background: radial-gradient(circle at center, #24163b 0%, #0e0919 65%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 
+                0 0 80px rgba(167, 116, 255, 0.2),
+                inset 0 0 60px rgba(167, 116, 255, 0.08);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .big-note {
+            font-size: 160px;
+            color: #cda9ff;
+            animation: float 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(205, 169, 255, 0.5));
+        }
+
+        .note {
+            position: absolute;
+            color: #c7a3ff;
+            font-size: 32px;
+            opacity: 0.6;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .note1 { top: 30px; left: 40px; animation-delay: 0s; }
+        .note2 { top: 60px; right: 50px; animation-delay: 0.5s; }
+        .note3 { bottom: 50px; left: 60px; animation-delay: 1s; }
+        .note4 { bottom: 40px; right: 60px; animation-delay: 1.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .luttappi-text {
+            position: absolute;
+            bottom: 20px;
+            font-family: 'Press Start 2P';
+            font-size: 10px;
+            color: #ddd1ef;
+            letter-spacing: 1px;
+        }
+
+        /* ================= FEATURES SECTION ================= */
+        .features {
+            padding: 100px 8%;
+            background: rgba(22, 16, 39, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            left: -10%;
+            bottom: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201, 167, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .section-title {
+            font-family: 'Press Start 2P';
+            font-size: clamp(32px, 5vw, 56px);
+            text-align: center;
+            margin-bottom: 70px;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+
+        .section-title span {
+            color: #c9a7ff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .feature-card {
+            padding: 35px;
+            border: 2px solid #3b2d54;
+            border-radius: 20px;
+            background: rgba(36, 22, 59, 0.4);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            border-color: #c9a7ff;
+            background: rgba(36, 22, 59, 0.7);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(201, 167, 255, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #c9a7ff;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            color: #d8d0e8;
+            line-height: 1.6;
+        }
+
+        /* ================= HOW IT WORKS ================= */
+        .how-it-works {
+            padding: 100px 8%;
+            background: linear-gradient(180deg, transparent 0%, rgba(201, 167, 255, 0.05) 100%);
+            position: relative;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .step {
+            padding: 30px;
+            background: rgba(36, 22, 59, 0.4);
+            border: 2px solid #3b2d54;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .step-number {
+            font-family: 'Press Start 2P';
+            font-size: 36px;
+            color: #c9a7ff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(201, 167, 255, 0.3);
+        }
+
+        .step h4 {
+            font-size: 18px;
+            color: #d8d0e8;
+            margin-bottom: 12px;
+        }
+
+        .step p {
+            font-size: 14px;
+            color: #b8b0c8;
+            line-height: 1.6;
+        }
+
+        /* ================= CTA SECTION ================= */
+        .cta-section {
+            padding: 80px 8%;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(201, 167, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .cta-content h2 {
+            font-family: 'Press Start 2P';
+            font-size: clamp(36px, 6vw, 60px);
+            margin-bottom: 25px;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            color: #c8c0d8;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        /* ================= RESOURCES SECTION ================= */
+        .resources {
+            padding: 80px 8%;
+            background: rgba(22, 16, 39, 0.7);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .resource-card {
+            padding: 35px;
+            background: rgba(36, 22, 59, 0.6);
+            border: 2px solid #3b2d54;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            border-color: #c9a7ff;
+            box-shadow: 0 15px 40px rgba(201, 167, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .resource-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .resource-card h4 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #c9a7ff;
+        }
+
+        .resource-card p {
+            font-size: 14px;
+            color: #d8d0e8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .resource-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: #b78cff;
+            color: #10091b;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .resource-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(183, 140, 255, 0.3);
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            padding: 40px 8%;
+            background: rgba(9, 7, 20, 0.95);
+            border-top: 2px solid #28203d;
+            text-align: center;
+        }
+
+        footer p {
+            color: #b8b0c8;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: #c9a7ff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #d6a7ff;
+            transform: scale(1.1);
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 40px 5%;
+                min-height: auto;
+            }
+
+            .music-stage {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        🎵 Made with ❤️ at TinkerHub Useless Projects | A Voice-Based Musical Arithmetic Game
+    </div>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Swari<span>thmetic</span></div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#how">How It Works</a>
+            <a href="#resources">Resources</a>
+            <a href="#play">Play Now</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-left">
+            <div class="small-title">🎮 VOICE-BASED GAME</div>
+            <h1>Sing Your Way To The <span>Answer</span></h1>
+            <p>Experience a revolutionary blend of music and mathematics. Enter numbers, sing musical notes (swaras), and unlock the hidden answer to your arithmetic problem!</p>
+            
+            <div class="feature-list">
+                <div class="feature-item">Voice-based pitch detection using Web Audio API</div>
+                <div class="feature-item">Four mathematical operators with unique themes</div>
+                <div class="feature-item">Obstacle game with musical barriers</div>
+                <div class="feature-item">Real-time pitch meter with target line</div>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="https://swarithmetic.vercel.app/" class="btn primary-btn">🎮 Play Game</a>
+                <a href="#resources" class="btn secondary-btn">📚 Learn More</a>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <div class="music-stage">
+                <div class="note note1">♪</div>
+                <div class="note note2">♫</div>
+                <div class="big-note">♪</div>
+                <div class="note note3">♫</div>
+                <div class="note note4">♪</div>
+                <div class="luttappi-text">SING & SOLVE</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features" id="features">
+        <h2 class="section-title">Amazing <span>Features</span></h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎤</div>
+                <h3>Microphone Input</h3>
+                <p>Real-time pitch detection with smooth tracking and precise matching against target frequencies</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎵</div>
+                <h3>Swara Conversion</h3>
+                <p>Numbers transform into Indian musical notes (swaras). Sing to unlock each digit!</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <h3>Obstacle Game</h3>
+                <p>Guide Luttapi through animated barriers while matching pitch targets to reach the result</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Pitch Meter</h3>
+                <p>Visual 0-1000 Hz pitch meter with target line for accurate note matching</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Operator Themes</h3>
+                <p>Each operator (+, -, ×, ÷) has unique color schemes and visual themes</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>No Installation</h3>
+                <p>Pure web-based game using HTML, CSS, JavaScript - runs instantly on any browser</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="how-it-works" id="how">
+        <h2 class="section-title">How It <span>Works</span></h2>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Select Numbers</h4>
+                <p>Choose your first number using the calculator interface</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Pick Operator</h4>
+                <p>Select an operation: +, −, ×, or ÷</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Second Number</h4>
+                <p>Select your second number to complete the equation</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Calculate</h4>
+                <p>Press Calculate and allow microphone access</p>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <h4>Sing Notes</h4>
+                <p>Your numbers are converted to musical notes (swaras)</p>
+            </div>
+            <div class="step">
+                <div class="step-number">6</div>
+                <h4>Beat Barriers</h4>
+                <p>Match the pitch to guide Luttapi through obstacles</p>
+            </div>
+            <div class="step">
+                <div class="step-number">7</div>
+                <h4>Get Result</h4>
+                <p>Luttapi reaches the finish and reveals your answer!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" id="play">
+        <div class="cta-content">
+            <h2>Ready to Play?</h2>
+            <p>Combine mathematics with music! Test your singing abilities while solving arithmetic problems in the most unique way possible.</p>
+            <div class="cta-buttons">
+                <a href="https://swarithmetic.vercel.app/" class="btn primary-btn">🚀 Launch Game</a>
+                <a href="#resources" class="btn secondary-btn">🎯 Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESOURCES SECTION -->
+    <section class="resources" id="resources">
+        <h2 class="section-title">Game <span>Resources</span></h2>
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-icon">🎮</div>
+                <h4>Live Game</h4>
+                <p>Experience the full game with all features including voice pitch detection and the Luttapi obstacle challenge</p>
+                <a href="https://swarithmetic.vercel.app/" class="resource-btn">Play Now →</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">📖</div>
+                <h4>GitHub Repository</h4>
+                <p>Explore the complete source code, contribute, and understand the technical implementation behind Swarithmetic</p>
+                <a href="https://github.com/dexter967/Swarithmetic" class="resource-btn">View Code →</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">🎬</div>
+                <h4>Demo Video</h4>
+                <p>Watch the complete gameplay demonstration to understand how the voice-based pitch detection and game mechanics work together</p>
+                <a href="https://drive.google.com/file/d/1_B6_gLas7QoPHvO4eC1hepwbQkcM4MVB/view" class="resource-btn" target="_blank">Watch Demo →</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">🎨</div>
+                <h4>Design Assets</h4>
+                <p>Access design mockups, wireframes, and visual assets used in the game's development and interface</p>
+                <a href="https://drive.google.com/drive/folders/1_X0gwTYVNUf-oO56hnAyBjnSgeiENpAi" class="resource-btn" target="_blank">View Assets →</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">📚</div>
+                <h4>Documentation</h4>
+                <p>Complete technical documentation covering installation, features, controls, technologies used, and project structure</p>
+                <a href="https://github.com/dexter967/Swarithmetic/blob/main/README.md" class="resource-btn">Read Docs →</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">👥</div>
+                <h4>Team & Credits</h4>
+                <p>Created by Team DUMBALISCIOUS at TinkerHub Useless Projects featuring Abhijith A Kurup and Akshada V</p>
+                <a href="https://github.com/dexter967" class="resource-btn">View Profile →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>🎵 Swarithmetic | Sing Your Way To The Answer</p>
+        <p>A unique blend of mathematics and music education through interactive voice-based gameplay</p>
+        <div class="social-links">
+            <a href="https://github.com/dexter967/Swarithmetic">GitHub</a>
+            <a href="https://swarithmetic.vercel.app/">Play Now</a>
+            <a href="https://github.com/dexter967">Developer</a>
+        </div>
+        <p style="margin-top: 25px; font-size: 12px;">Made with ❤️ at TinkerHub Useless Projects | © 2026</p>
+    </footer>
+</body>
+</html>
