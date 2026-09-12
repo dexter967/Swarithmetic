@@ -1,6 +1,8 @@
 SWARITHMETIC 🎯
 Basic Details
+
 Team Name: DUMBALISCIOUS
+
 Team Members
 Team Lead: Abhijith A Kurup - College Of Engineering Chengannur
 Member 2: Akshada V - College Of Engineering Chengannur
