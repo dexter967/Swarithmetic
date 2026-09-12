@@ -874,6 +874,62 @@ footer strong {
         translateY(0);
 }
 
+/* =========================
+   MEDIA TABLE STYLES
+========================= */
+
+.media-table {
+    width: 100%;
+    margin: 30px 0;
+    border-collapse: collapse;
+    background: rgba(255,255,255,.045);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.media-table th {
+    background: rgba(255,70,203,.2);
+    color: #ff55d2;
+    padding: 15px;
+    text-align: left;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.media-table td {
+    padding: 12px 15px;
+    color: #bbb4c8;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.media-table tr:hover {
+    background: rgba(255,70,203,.1);
+}
+
+.media-table a {
+    color: #ff55d2;
+    transition: .3s;
+}
+
+.media-table a:hover {
+    text-decoration: underline;
+}
+
+.type-screenshot {
+    color: #4de2ff;
+    font-weight: 600;
+}
+
+.type-video {
+    color: #ff55d2;
+    font-weight: 600;
+}
+
+.type-folder {
+    color: #ffd700;
+    font-weight: 600;
+}
 
 @media(max-width:900px) {
 
@@ -907,6 +963,15 @@ footer strong {
     .steps {
         grid-template-columns:
             repeat(2,1fr);
+    }
+
+    .media-table {
+        font-size: 14px;
+    }
+
+    .media-table th,
+    .media-table td {
+        padding: 10px;
     }
 
 }
@@ -961,6 +1026,10 @@ footer strong {
         text-align: center;
 
         justify-content: center;
+    }
+
+    .media-table {
+        font-size: 12px;
     }
 
 }
@@ -1036,7 +1105,7 @@ footer strong {
 
         <p>
             Swarithmetic started with one slightly suspicious question:
-            <strong>“What if you had to sing to solve maths?”</strong>
+            <strong>"What if you had to sing to solve maths?"</strong>
         </p>
 
         <br>
@@ -1270,7 +1339,7 @@ footer strong {
         <p>
             Swarithmetic started with one slightly suspicious question:
             <span class="highlight">
-                “What if you had to sing to solve maths?”
+                "What if you had to sing to solve maths?"
             </span>
 
             <br><br>
@@ -1299,6 +1368,91 @@ footer strong {
     </div>
 
 
+    <!-- MEDIA TABLE -->
+
+    <div style="max-width: 1200px; margin: 50px auto;">
+        <h3 style="text-align: center; margin-bottom: 30px; color: #ff55d2; font-size: 20px;">
+            📁 Project Media & Files
+        </h3>
+
+        <table class="media-table">
+            <thead>
+                <tr>
+                    <th>Time Period</th>
+                    <th>Heading</th>
+                    <th>Type</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10:30–11:30 PM</td>
+                    <td>Frontend snapshot</td>
+                    <td><span class="type-screenshot">Screenshot</span></td>
+                    <td><a href="https://drive.google.com/file/d/1LY0kGzp2oWNYjMQE2WcvzIU6bjEyhDFS/view?usp=drive_link" target="_blank">View</a></td>
+                </tr>
+                <tr>
+                    <td>11:30 PM–1:00 AM</td>
+                    <td>Microphone test recording</td>
+                    <td><span class="type-video">Video/Audio</span></td>
+                    <td><a href="https://drive.google.com/file/d/1m_vrcv2Dl5Oyo-ePXJzJgt9zeYJ8QVd5/view?usp=drive_link" target="_blank">View</a></td>
+                </tr>
+                <tr>
+                    <td>1:00–2:00 AM</td>
+                    <td>Demo clip 1</td>
+                    <td><span class="type-video">Video</span></td>
+                    <td><a href="https://drive.google.com/file/d/1f04vy-vn14Z10ZRle2bUQm5p7PKROa-W/view?usp=drive_link" target="_blank">View</a></td>
+                </tr>
+                <tr>
+                    <td>1:00–2:00 AM</td>
+                    <td>Demo clip 2</td>
+                    <td><span class="type-video">Video</span></td>
+                    <td><a href="https://drive.google.com/file/d/1SGygR0bAWxshLDy1B5FNuRaWFBPK-leC/view?usp=drive_link" target="_blank">View</a></td>
+                </tr>
+                <tr>
+                    <td>2:00–5:00 AM</td>
+                    <td>Log / screenshot 1</td>
+                    <td><span class="type-screenshot">Screenshot</span></td>
+                    <td><a href="https://drive.google.com/file/d/1ItGAVqyimviuSVOvKET3xTdWSkNAy1c6/view?usp=drive_link" target="_blank">View</a></td>
+                </tr>
+                <tr>
+                    <td>2:00–5:00 AM</td>
+                    <td>Log / screenshot 2</td>
+                    <td><span class="type-screenshot">Screenshot</span></td>
+                    <td><a href="https://drive.google.com/file/d/1tvqglAr1xs3fITdRSmqnnQ37vUQ495uj/view?usp=drive_link" target="_blank">View</a></td>
+                </tr>
+                <tr>
+                    <td>2:00–5:00 AM</td>
+                    <td>Log / screenshot 3</td>
+                    <td><span class="type-screenshot">Screenshot</span></td>
+                    <td><a href="https://drive.google.com/file/d/1fNiDZOAnBU_hc_w1ZctJ29tL7WyuUUG9/view?usp=drive_link" target="_blank">View</a></td>
+                </tr>
+                <tr>
+                    <td>7:30 AM</td>
+                    <td>Morning clip 1</td>
+                    <td><span class="type-video">Video</span></td>
+                    <td><a href="https://drive.google.com/file/d/1f3zB90-Ye1hsLq0E4ArgwzqQ1NYpwdkS/view?usp=drivesdk" target="_blank">View</a></td>
+                </tr>
+                <tr>
+                    <td>7:30 AM</td>
+                    <td>Morning clip 2</td>
+                    <td><span class="type-video">Video</span></td>
+                    <td><a href="https://drive.google.com/file/d/1TSIcEGeTz9s1hyNYm3BBShwhuI6N6oXA/view?usp=drivesdk" target="_blank">View</a></td>
+                </tr>
+                <tr style="background: rgba(255,215,0,.1);">
+                    <td colspan="2"><strong>Swarithmetic Project Folder</strong></td>
+                    <td><span class="type-folder">Folder</span></td>
+                    <td><a href="https://drive.google.com/drive/folders/1_X0gwTYVNUf-oO56hnAyBjnSgeiENpAi" target="_blank">View</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="text-align: center; margin-top: 20px; color: #aaa2b9; font-size: 14px;">
+            <p>📊 Summary: <strong>4 Screenshots</strong> • <strong>5 Videos</strong> • <strong>1 Main Folder</strong></p>
+        </div>
+    </div>
+
+
     <!-- TIMELINE -->
 
     <div class="timeline">
@@ -1313,7 +1467,7 @@ footer strong {
             <div class="timeline-card">
 
                 <h3>
-                    7:30 PM — “Njngal pani thudangi”
+                    7:30 PM — "Njngal pani thudangi"
                 </h3>
 
                 <p>
@@ -1480,7 +1634,7 @@ footer strong {
             <div class="timeline-card">
 
                 <h3>
-                    2:00 AM – 5:00 AM — The “Why Is This Not Working?” Era
+                    2:00 AM – 5:00 AM — The "Why Is This Not Working?" Era
                 </h3>
 
                 <p>
@@ -1566,7 +1720,7 @@ footer strong {
     <div class="funny-box reveal">
 
         <h3>
-            “Change something. Refresh. Hope.”
+            "Change something. Refresh. Hope."
         </h3>
 
         <p>
