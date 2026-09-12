@@ -2,6 +2,8 @@ SWARITHMETIC 🎯
 Basic Details
 
 Team Name: DUMBALISCIOUS
+<img width="1280" height="640" alt="image" src="https://github.com/user-attachments/assets/18a7a512-68da-4311-b811-778685936a55" />
+
 
 Team Members
 
