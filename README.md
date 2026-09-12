@@ -306,11 +306,10 @@ Diagramsflowchart LR
 Project Demo
 (https://drive.google.com/file/d/1_B6_gLas7QoPHvO4eC1hepwbQkcM4MVB/view?pli=1)
 
-Additional Demos
-[Add any extra demo materials/links]
 
 Team Contributions
-[Name 1]: [Specific contributions]
-[Name 2]: [Specific contributions]
-[Name 3]: [Specific contributions]
+Abhijith A Kurup: Worked alongside on development, implementation, testing, debugging and bringing the game idea into a working prototype.
+The project was not built in perfectly separated boxes. We jumped between tasks, helped each other debug problems and continuously tested the game as it evolved.
+Akshada V:Worked on the project concept, interface design, frontend development, game flow and documentation. Also participated in testing and debugging the different parts of the game.
+
 Made with ❤️ at TinkerHub Useless Projects
