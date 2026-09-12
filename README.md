@@ -1,8 +1,12 @@
+<img width="1280" height="640" alt="image" src="https://github.com/user-attachments/assets/18a7a512-68da-4311-b811-778685936a55" />
 SWARITHMETIC 🎯
+ 
+ Our landing page: https://dexter967.github.io/Swarithmetic/landing.html
+
+
 Basic Details
 
 Team Name: DUMBALISCIOUS
-<img width="1280" height="640" alt="image" src="https://github.com/user-attachments/assets/18a7a512-68da-4311-b811-778685936a55" />
 
 
 Team Members
@@ -319,6 +323,5 @@ The project was not built in perfectly separated boxes. We jumped between tasks,
 Akshada V:Worked on the project concept, interface design, frontend development, game flow and documentation. Also participated in testing and debugging the different parts of the game.
 
 
-Our landing page:https://github.com/dexter967/Swarithmetic/landing.html
 
 Made with ❤️ at TinkerHub Useless Projects
